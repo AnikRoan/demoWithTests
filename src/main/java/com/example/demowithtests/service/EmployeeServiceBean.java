@@ -339,7 +339,7 @@ public class EmployeeServiceBean implements EmployeeService {
         return employeeRepository.findById(employeeId)
                 .map(entity -> {
                     entity.getAddresses().stream()
-                            .filter(address -> address.getId().equals(addressId))
+                            .filter(address -> !employeeId.equals(address.getId()))
                             .findFirst()
                             .ifPresent(address -> {
                                 address.setAddressHasActive(false);
