@@ -7,19 +7,19 @@ spring:
     # lazy-initialization: true
   # Database
   datasource:
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     #url: jdbc:postgresql://localhost:5432/employee
     # For dockerization
-    url: jdbc:postgresql://db:5432/employee
-    username: postgres
-    password: postgres
+    url: jdbc:mysql://db:3306/employee
+    username: mysqluser
+    password: mysqlpassword
   # JPA properties
   jpa:
     hibernate:
       ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
     show-sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
     #open-in-view: false
     #generate-ddl: true
   flyway:
@@ -41,7 +41,7 @@ logging:
     com.example.demowithtests: debug
 # Server configuration
 server:
-  port: 8089 #set your port
+  port: 8888 #set your port
 # Swagger configuration
 springdoc:
   swagger-ui:
